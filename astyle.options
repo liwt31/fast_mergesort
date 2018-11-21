@@ -1,0 +1,11 @@
+--mode=c
+--style=google # brackets
+--indent=spaces=4
+--max-code-length=80
+--add-brackets
+--add-one-line-brackets
+--break-blocks
+--pad-oper
+--pad-header
+--delete-empty-lines
+--suffix=none
