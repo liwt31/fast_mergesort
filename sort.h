@@ -59,7 +59,7 @@ void INSERTION_SORT(SORT_TYPE *dst, const size_t size) {
 void QUICK_SORT(SORT_TYPE *dst, const size_t size) {
     SORT_TYPE *pl, *pr, *pm, pivot;
 
-    if (size < 16) {
+    if (size < MIN_INSERTION) {
         INSERTION_SORT(dst, size);
         return;
     }
@@ -114,7 +114,7 @@ void QUICK_SORT(SORT_TYPE *dst, const size_t size) {
 void MERGE_SORT_REC(SORT_TYPE *dst, const size_t size, SORT_TYPE *pw) {
     SORT_TYPE *pl, *pr, *pm;
 
-    if (size < 16) {
+    if (size < MIN_INSERTION) {
         INSERTION_SORT(dst, size);
         return;
     }
@@ -143,11 +143,6 @@ void MERGE_SORT_REC(SORT_TYPE *dst, const size_t size, SORT_TYPE *pw) {
 
 void MERGE_SORT(SORT_TYPE *dst, const size_t size) {
     SORT_TYPE *pw;
-
-    /* don't bother sorting an array of size <= 1 */
-    if (size <= 1) {
-        return;
-    }
 
     pw = (SORT_TYPE *) malloc(size * sizeof(SORT_TYPE));
     MERGE_SORT_REC(dst, size, pw);

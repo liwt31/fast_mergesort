@@ -2,13 +2,13 @@
 
 #include <sys/time.h>
 
-#define SORT_NAME int64_type
+#define SORT_NAME int64
 #define SORT_TYPE int64_t
 #include "sort.h"
 #undef SORT_NAME
 #undef SORT_TYPE
 
-#define SORT_NAME float64_type
+#define SORT_NAME float64
 #define SORT_TYPE double
 #include "sort.h"
 #undef SORT_NAME
@@ -117,10 +117,10 @@ static void fill_double(double *dst, const int size) {
 int run_tests(int64_t *sizes, int sizes_cnt) {
     int test, res;
     double usec1, usec2, diff;
-    TEST_SORT_INT(int64_type_quick_sort);
-    TEST_SORT_INT(int64_type_merge_sort);
-    TEST_SORT_DOUBLE(float64_type_quick_sort);
-    TEST_SORT_DOUBLE(float64_type_merge_sort);
+    TEST_SORT_INT(int64_quick_sort);
+    TEST_SORT_INT(int64_merge_sort);
+    TEST_SORT_DOUBLE(float64_quick_sort);
+    TEST_SORT_DOUBLE(float64_merge_sort);
     return 0;
 }
 
