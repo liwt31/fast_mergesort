@@ -1,6 +1,3 @@
-# Copyright (c) 2010-2014 Christopher Swenson.
-# Copyright (c) 2012 Google Inc. All Rights Reserved.
-
 CC ?= gcc
 CFLAGS = -O3 -g -Wall -pedantic
 TARGET = fast_merge.out
@@ -9,6 +6,9 @@ TARGET = fast_merge.out
 
 default: main.c sort.h
 	$(CC) $(CFLAGS) main.c -o $(TARGET)
+
+static: main.c sort.h
+	$(CC) $(CFLAGS) -static main.c -o ./bin/$(TARGET)
 
 run: default
 	./$(TARGET)

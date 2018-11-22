@@ -1,9 +1,6 @@
 /* Adopted from Christopher Swenson (https://github.com/swenson/sort) in MIT license */
 
-#include <stdlib.h>
-#include <stdio.h>
 #include <string.h>
-#include <stdint.h>
 
 #ifndef SORT_NAME
 #error "Must declare SORT_NAME"
@@ -143,7 +140,6 @@ void MERGE_SORT_REC(SORT_TYPE *dst, const size_t size, SORT_TYPE *pw) {
 
 void MERGE_SORT(SORT_TYPE *dst, const size_t size) {
     SORT_TYPE *pw;
-
     pw = (SORT_TYPE *) malloc(size * sizeof(SORT_TYPE));
     MERGE_SORT_REC(dst, size, pw);
     free(pw);

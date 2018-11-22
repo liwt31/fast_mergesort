@@ -1,6 +1,9 @@
 /* Adopted from Christopher Swenson (https://github.com/swenson/sort) in MIT license */
 
 #include <sys/time.h>
+#include <stdio.h>
+#include <stdint.h>
+#include <stdlib.h>
 
 #define SORT_NAME int64
 #define SORT_TYPE int64_t
