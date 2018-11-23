@@ -7,6 +7,9 @@ TARGET = fast_merge.out
 default: main.c sort.h
 	$(CC) $(CFLAGS) main.c -o $(TARGET)
 
+asm: main.c sort.h merge_asm_int64.h
+	$(CC) $(CFLAGS) -D ASM main.c -o $(TARGET)
+
 static: main.c sort.h
 	$(CC) $(CFLAGS) -static main.c -o ./bin/$(TARGET)
 

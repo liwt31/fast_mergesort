@@ -17,6 +17,10 @@
 #undef SORT_NAME
 #undef SORT_TYPE
 
+#ifdef ASM
+#include "merge_asm_int64.h"
+#endif
+
 /* Used to control the test */
 #define SEED 123
 #define MAXSIZE 10000
@@ -122,6 +126,9 @@ int run_tests(int64_t *sizes, int sizes_cnt) {
     double usec1, usec2, diff;
     TEST_SORT_INT(int64_quick_sort);
     TEST_SORT_INT(int64_merge_sort);
+#ifdef ASM
+    TEST_SORT_INT(asm_int64_merge_sort);
+#endif
     TEST_SORT_DOUBLE(float64_quick_sort);
     TEST_SORT_DOUBLE(float64_merge_sort);
     return 0;
