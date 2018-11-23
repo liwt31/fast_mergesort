@@ -7,12 +7,12 @@ git clone https://github.com/liwt31/fast_mergesort.git
 cd fast_mergesort
 make run
 ```
-If you didn't see Mergesort is faster. There are two ways to solve it:
-##### Build and run inline-assembly optimized Mergesort code:
+If you didn't see Mergesort is faster, there are two ways to solve it:
+#### Build and run inline-assembly optimized Mergesort code:
 ```
 make asm
 ```
-##### Run the binary which contains the optimized Mergesort code:
+#### Run the binary which contains the optimized Mergesort code:
 ```
 ./bin/fast_mergesort.out
 ```

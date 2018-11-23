@@ -1,24 +1,25 @@
 CC ?= gcc
 CFLAGS = -O3 -g -Wall -pedantic
-TARGET = ./fast_merge.out
+SRC = src/main.c
+TARGET = fast_merge.out
 
 .PHONY: run asm format clean
 
-default: main.c sort.h
-	$(CC) $(CFLAGS) main.c -o $(TARGET)
+default: $(SRC)
+	$(CC) $(CFLAGS) $(SRC) -o $(TARGET)
 
-static: main.c sort.h
-	$(CC) $(CFLAGS) -static main.c -o ./bin/$(TARGET)
+static: $(SRC)
+	$(CC) $(CFLAGS) -static $(SRC) -o ./bin/$(TARGET)
 
 run: default
 	./$(TARGET)
 
-asm: main.c sort.h merge_asm_int64.h
-	$(CC) $(CFLAGS) -D ASM main.c -o $(TARGET)
-	$(TARGET)
+asm: $(SRC)
+	$(CC) $(CFLAGS) -D ASM $(SRC) -o $(TARGET)
+	./$(TARGET)
 
 format:
-	astyle --options=astyle.options sort.h main.c
+	astyle --options=astyle.options ./src/*
 
 clean:
 	rm -f $(TARGET)
